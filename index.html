@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Father's Day!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #001f3f;
+            --gold: #FFD700;
+            --red: #e63946;
+            --cream: #f1faee;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--cream);
+            color: var(--navy);
+            overflow-x: hidden;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--navy), #003366);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .banner {
+            font-family: 'Bungee', cursive;
+            font-size: 3rem;
+            margin: 1rem 0;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .banner::after {
+            content: "❤️";
+            position: absolute;
+            top: -15px;
+            right: -20px;
+            font-size: 1.5rem;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .banner::before {
+            content: "👔";
+            position: absolute;
+            bottom: -15px;
+            left: -20px;
+            font-size: 1.5rem;
+            animation: float 3s ease-in-out infinite reverse;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        nav a:hover {
+            background-color: var(--gold);
+            color: var(--navy);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        nav a::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+        
+        nav a:focus:not(:active)::after {
+            animation: ripple 1s ease-out;
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(20, 20);
+                opacity: 0;
+            }
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .hero h2 {
+            font-family: 'Bungee', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--red);
+        }
+        
+        .photo-frame {
+            width: 250px;
+            height: 250px;
+            margin: 1rem auto;
+            border: 15px solid var(--gold);
+            border-image: linear-gradient(45deg, var(--gold), #daa520) 1;
+            padding: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            background-color: white;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .photo-frame:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .photo-frame::before {
+            content: "WORLD'S BEST DAD";
+            position: absolute;
+            bottom: -25px;
+            left: 0;
+            right: 0;
+            background: var(--navy);
+            color: white;
+            padding: 5px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .upload-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--red);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .upload-btn:hover {
+            background-color: #c1121f;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Dad Reasons Section */
+        .reasons-section {
+            background-color: white;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .reasons-section h3 {
+            font-family: 'Bungee', cursive;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .reasons-list {
+            list-style-type: none;
+        }
+        
+        .reason-item {
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .reason-item:hover {
+            background-color: #e9ecef;
+            transform: translateX(5px);
+        }
+        
+        .reason-item::before {
+            content: "❤️";
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .add-reason {
+            display: flex;
+            margin-top: 1rem;
+        }
+        
+        .add-reason input {
+            flex-grow: 1;
+            padding: 0.5rem;
+            border: 2px solid #ddd;
+            border-radius: 50px 0 0 50px;
+            outline: none;
+        }
+        
+        .add-reason button {
+            padding: 0.5rem 1rem;
+            background-color: var(--navy);
+            color: white;
+            border: none;
+            border-radius: 0 50px 50px 0;
+            cursor: pointer;
+        }
+        
+        /* Dad Jokes Section */
+        .jokes-section {
+            background-color: var(--navy);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .jokes-section h3 {
+            font-family: 'Bungee', cursive;
+            margin-bottom: 1rem;
+        }
+        
+        .joke-container {
+            background-color: white;
+            color: var(--navy);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem auto;
+            max-width: 600px;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .joke-container::before {
+            content: """;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 3rem;
+            color: rgba(0, 0, 0, 0.1);
+        }
+        
+        .joke-container::after {
+            content: """;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 3rem;
+            color: rgba(0, 0, 0, 0.1);
+        }
+        
+        .joke-btn {
+            padding: 0.8rem 1.5rem;
+            background-color: var(--gold);
+            color: var(--navy);
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 0.5rem;
+        }
+        
+        .joke-btn:hover {
+            background-color: #ffc800;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Virtual Gifts Section */
+        .gifts-section {
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .gifts-section h3 {
+            font-family: 'Bungee', cursive;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+        
+        .gifts-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .gift-box {
+            width: 150px;
+            height: 150px;
+            background-color: var(--red);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
+        
+        .gift-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gift-box::before {
+            content: "🎁";
+            position: absolute;
+            font-size: 2rem;
+        }
+        
+        .gift-content {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            color: var(--navy);
+            border-radius: 10px;
+            padding: 1rem;
+            display: none;
+            transform: rotateY(180deg);
+            backface-visibility: hidden;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .gift-box.open {
+            transform: rotateY(180deg);
+        }
+        
+        .gift-box.open .gift-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .gift-box.open::before {
+            display: none;
+        }
+        
+        .print-btn {
+            margin-top: 0.5rem;
+            padding: 0.3rem 0.6rem;
+            background-color: var(--navy);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--navy);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--gold);
+            transform: translateY(-3px);
+        }
+        
+        /* Confetti Effect */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            opacity: 0;
+            animation: confetti 5s ease-in-out infinite;
+            z-index: 1000;
+        }
+        
+        @keyframes confetti {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .banner {
+                font-size: 2rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .photo-frame {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .gifts-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="banner">Happy Father's Day</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#memories">Memories</a>
+            <a href="#gifts">Gifts</a>
+            <a href="#jokes">Dad Jokes</a>
+            <a href="#card">Make a Card</a>
+        </nav>
+    </header>
+    
+    <section class="hero" id="home">
+        <h2 id="greeting">Happy Father's Day!</h2>
+        <div class="photo-frame" id="photoFrame">
+            <img src="/photo/pho.jpg" alt="Dad's Photo" id="dadPhoto">
+        </div>
+        <button class="upload-btn" id="uploadBtn">Add Dad's Photo</button>
+        <input type="file" id="photoUpload" accept="image/*" style="display: none;">
+    </section>
+    
+    <section class="reasons-section">
+        <h3>Why My Dad is Special</h3>
+        <ul class="reasons-list" id="reasonsList">
+            <li class="reason-item">He always knows how to fix things</li>
+            <li class="reason-item">He tells the best (and worst) dad jokes</li>
+            <li class="reason-item">He works hard for our family</li>
+            <li class="reason-item">He gives the best advice</li>
+        </ul>
+        <div class="add-reason">
+            <input type="text" id="newReason" placeholder="Add your own reason...">
+            <button id="addReasonBtn">Add</button>
+        </div>
+    </section>
+    
+    <section class="jokes-section" id="jokes">
+        <h3>Dad Joke Generator</h3>
+        <div class="joke-container" id="jokeContainer">
+            <p>Why don't eggs tell jokes? They'd crack each other up!</p>
+        </div>
+        <button class="joke-btn" id="jokeBtn">Tell Me Another!</button>
+        <button class="joke-btn" id="shareJokeBtn">Send to Dad</button>
+    </section>
+    
+    <section class="gifts-section" id="gifts">
+        <h3>Virtual Gifts for Dad</h3>
+        <p>Click on a gift box to open it!</p>
+        <div class="gifts-container">
+            <div class="gift-box" id="gift1">
+                <div class="gift-content">
+                    <h4>Breakfast in Bed</h4>
+                    <p>Good for one delicious breakfast served with love!</p>
+                    <button class="print-btn">Print Coupon</button>
+                </div>
+            </div>
+            <div class="gift-box" id="gift2">
+                <div class="gift-content">
+                    <h4>Free Hug</h4>
+                    <p>Redeemable anytime, no expiration!</p>
+                    <button class="print-btn">Print Voucher</button>
+                </div>
+            </div>
+            <div class="gift-box" id="gift3">
+                <div class="gift-content">
+                    <h4>Day Off</h4>
+                    <p>One full day of relaxation - no chores allowed!</p>
+                    <button class="print-btn">Print Certificate</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <p>Made with ❤️ for the World's Best Dad</p>
+        <div class="social-icons">
+            <a href="#" aria-label="Share on Facebook">📘</a>
+            <a href="#" aria-label="Share on Twitter">🐦</a>
+            <a href="#" aria-label="Share on Instagram">📷</a>
+            <a href="#" aria-label="Share via Email">✉️</a>
+        </div>
+        <button id="printPageBtn" style="margin-top: 1rem; padding: 0.5rem 1rem; background-color: var(--gold); border: none; border-radius: 5px; cursor: pointer;">Print This Page as a Card</button>
+    </footer>
+    
+    <script>
+        // Personalized Greeting
+        document.addEventListener('DOMContentLoaded', function() {
+            const dadName = prompt("What's your dad's name?", "Dad");
+            const greeting = document.getElementById('greeting');
+            greeting.textContent = `Happy Father's Day, ${dadName || 'Dad'}!`;
+            
+            // Create some initial confetti
+            createConfetti();
+        });
+        
+        // Photo Upload Functionality
+        const uploadBtn = document.getElementById('uploadBtn');
+        const photoUpload = document.getElementById('photoUpload');
+        const dadPhoto = document.getElementById('dadPhoto');
+        const photoFrame = document.getElementById('photoFrame');
+        
+        uploadBtn.addEventListener('click', () => {
+            photoUpload.click();
+        });
+        
+        photoUpload.addEventListener('change', function(e) {
+            if (e.target.files && e.target.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    dadPhoto.src = event.target.result;
+                    photoFrame.classList.add('gold-frame');
+                    createConfetti();
+                }
+                reader.readAsDataURL(e.target.files[0]);
+            }
+        });
+        
+        photoFrame.addEventListener('click', function() {
+            this.classList.toggle('gold-frame');
+            if (this.classList.contains('gold-frame')) {
+                createConfetti();
+            }
+        });
+        
+        // Reasons List Functionality
+        const addReasonBtn = document.getElementById('addReasonBtn');
+        const newReasonInput = document.getElementById('newReason');
+        const reasonsList = document.getElementById('reasonsList');
+        
+        addReasonBtn.addEventListener('click', function() {
+            addNewReason();
+        });
+        
+        newReasonInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                addNewReason();
+            }
+        });
+        
+        function addNewReason() {
+            const reasonText = newReasonInput.value.trim();
+            if (reasonText) {
+                const newItem = document.createElement('li');
+                newItem.className = 'reason-item';
+                newItem.textContent = reasonText;
+                newItem.addEventListener('click', function() {
+                    this.classList.toggle('highlighted');
+                    createConfetti();
+                });
+                reasonsList.appendChild(newItem);
+                newReasonInput.value = '';
+                createConfetti();
+            }
+        }
+        
+        // Make reason items interactive
+        document.querySelectorAll('.reason-item').forEach(item => {
+            item.addEventListener('click', function() {
+                this.classList.toggle('highlighted');
+                createConfetti();
+            });
+        });
+        
+        // Dad Jokes Functionality
+        const jokeBtn = document.getElementById('jokeBtn');
+        const shareJokeBtn = document.getElementById('shareJokeBtn');
+        const jokeContainer = document.getElementById('jokeContainer');
+        
+        const dadJokes = [
+            "Why don't skeletons fight each other? They don't have the guts.",
+            "I'm reading a book about anti-gravity. It's impossible to put down!",
+            "Did you hear about the claustrophobic astronaut? He just needed a little space.",
+            "Why did the scarecrow win an award? Because he was outstanding in his field!",
+            "How do you organize a space party? You planet!",
+            "Why did the math book look sad? Because it had too many problems.",
+            "What do you call a fake noodle? An impasta!",
+            "How do you make a tissue dance? Put a little boogie in it!",
+            "Why did the bicycle fall over? Because it was two-tired!",
+            "What's orange and sounds like a parrot? A carrot!"
+        ];
+        
+        jokeBtn.addEventListener('click', function() {
+            const randomJoke = dadJokes[Math.floor(Math.random() * dadJokes.length)];
+            jokeContainer.innerHTML = `<p>${randomJoke}</p>`;
+            createConfetti();
+        });
+        
+        shareJokeBtn.addEventListener('click', function() {
+            const currentJoke = jokeContainer.textContent.trim();
+            alert(`We would normally send this joke to Dad: "${currentJoke}"\n\nIn a real app, this would send via email or text.`);
+        });
+        
+        // Gift Box Functionality
+        document.querySelectorAll('.gift-box').forEach(box => {
+            box.addEventListener('click', function() {
+                this.classList.toggle('open');
+                if (this.classList.contains('open')) {
+                    createConfetti();
+                }
+            });
+        });
+        
+        // Print Page Button
+        document.getElementById('printPageBtn').addEventListener('click', function() {
+            window.print();
+        });
+        
+        // Confetti Effect Function
+        function createConfetti() {
+            const colors = ['#f94144', '#f3722c', '#f8961e', '#f9c74f', '#90be6d', '#43aa8b', '#577590'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.top = -10 + 'px';
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = Math.random() * 10 + 5 + 'px';
+                confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>
